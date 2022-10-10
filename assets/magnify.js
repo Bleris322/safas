@@ -31,11 +31,11 @@ function magnify(image, zoomRatio) {
   overlay.onmouseleave = () => overlay.remove();
 }
 
-function enableZoomOnHover() {
-  const images = document.querySelectorAll('.image--hover');
-  images && images.forEach(image => {
+function enableZoomOnHover(images) {
+  images.forEach(image => {
     image.onclick = () => magnify(image, 2);
   });
 }
 
-enableZoomOnHover();
+const hoverableImages = document.querySelectorAll('.image-magnify__hover');
+hoverableImages && enableZoomOnHover(hoverableImages);
